@@ -56,12 +56,19 @@ function promediador() {
 }
 
 function credito() {
-    alert(`${usuarioIngresado} Aca podras ver si eres apto para sacar un credito con nosotros.`)
+    alert(`${usuarioIngresado} Aca podras ver si eres apto para sacar un credito con nosotros, debes de ser mayor de 20 años`)
     let usuarioCredito = {
         nombre: prompt('Ingrese su Nombre:'),
         apellido: prompt('Ingrese su Apellido:'),
         edad: parseInt(prompt('Ingrese su edad:')),
-        IngresosMensuales: parseInt(prompt('Ingrese sus ingresos mensuales:')),
+        ingresosMensuales: parseInt(prompt('Ingrese sus ingresos mensuales:')),
+        valorPedido: parseInt(prompt('Ingrese sus el valor a prestar:')),
+        cuotas: parseInt(prompt('a cuantas cuotas? 6, 12, 24, hasta 60:')),
+    }
+    if (usuarioCredito.ingresosMensuales / 5 >= usuarioCredito.valorPedido / usuarioCredito.cuotas && edad > 18) {
+        alert(`${usuarioIngresado} tu credito a sido aprovado.`)
+    } else {
+        alert(`${usuarioIngresado} tu credito a sido denegado.`)
     }
 
 }
@@ -73,8 +80,9 @@ function seguro() {
     let cedula = parseInt(prompt("Ingrese la cedula del usuario:"));
     let carro = prompt("Marca del carro: ");
     let valorCarro = parseInt(prompt("Ingrese el valor del carro: "));
-    let Usuario = new Usuario(nombre, apellido, cedula, carro, valorCarro);
-    arrayUsuarios.push(Usuario);
+    let usuario = new Usuario(nombre, apellido, cedula, carro, valorCarro);
+    alert(`${usuarioIngresado} su carro marca ${usuario.carro} por valor de ${usuario.valorCarro} fue asegurado correctamente.`)
+    arrayUsuarios.push(usuario);
     console.log(arrayUsuarios);
 }
 
